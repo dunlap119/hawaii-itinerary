@@ -91,6 +91,45 @@
     opacity: 0.6;
   }
 
+  /* ─── FLIGHTS COLLAPSIBLE ─── */
+  .flights-toggle {
+    border: none;
+    width: 100%;
+  }
+  .flights-toggle summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #fff;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .flights-toggle summary::-webkit-details-marker { display: none; }
+  .flights-toggle summary::marker { display: none; content: ''; }
+  .flights-toggle summary .toggle-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .flights-toggle summary .toggle-arrow {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+    opacity: 0.7;
+  }
+  .flights-toggle[open] summary .toggle-arrow {
+    transform: rotate(180deg);
+  }
+  .flights-toggle summary .toggle-hint {
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.6;
+    margin-left: 12px;
+  }
+
   /* ─── FLIGHT BANNER ─── */
   .flights-section {
     display: grid;
@@ -367,6 +406,13 @@
     </div>
   </div>
 
+  <!-- ═══ FLIGHTS (collapsible) ═══ -->
+  <details class="flights-toggle" open>
+    <summary>
+      <span class="toggle-label">✈ Flight Details<span class="toggle-hint">4 groups</span></span>
+      <span class="toggle-arrow">▼</span>
+    </summary>
+
   <!-- ═══ SOUTHWEST: Curtis/Flood/Smith Group ═══ -->
   <div class="flights-section flights-g1">
     <div class="flight-group-title">Southwest Airlines — Curtis, Flood, Smith &amp; Smith-Taylor</div>
@@ -467,6 +513,8 @@
     </div>
   </div>
 
+  </details>
+
   <!-- ═══ HOTEL ═══ -->
   <div class="hotel-bar">
     <div class="hotel-icon">🌺</div>
@@ -538,7 +586,7 @@
 
       <!-- DAY 4 -->
       <div class="day-block">
-        <div class="day-title"><span class="day-dot"></span> Mon, Jun 1 — Wedding Day!</div>
+        <div class="day-title"><span class="day-dot"></span> Mon, Jun 1 — Shanna & Rodney's Wedding Day!</div>
         <div class="event">
           <div class="event-time">9:30 AM</div>
           <div class="event-name">Sprinter Van transfer from lobby</div>
