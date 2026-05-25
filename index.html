@@ -96,7 +96,7 @@
     border: none;
     width: 100%;
   }
-  .flights-toggle summary {
+  .flights-summary {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -104,30 +104,37 @@
     background: linear-gradient(135deg, #2c3e50, #34495e);
     color: #fff;
     cursor: pointer;
-    list-style: none;
     user-select: none;
   }
-  .flights-toggle summary::-webkit-details-marker { display: none; }
-  .flights-toggle summary::marker { display: none; content: ''; }
-  .flights-toggle summary .toggle-label {
+  .flights-summary .toggle-label {
     font-family: 'Playfair Display', serif;
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 1px;
   }
-  .flights-toggle summary .toggle-arrow {
+  .flights-summary .toggle-arrow {
     font-size: 12px;
     transition: transform 0.3s ease;
     opacity: 0.7;
   }
-  .flights-toggle[open] summary .toggle-arrow {
+  .flights-toggle.open .toggle-arrow {
     transform: rotate(180deg);
   }
-  .flights-toggle summary .toggle-hint {
+  .flights-summary .toggle-hint {
     font-size: 11px;
     font-weight: 400;
     opacity: 0.6;
     margin-left: 12px;
+  }
+  .flights-content {
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .flights-toggle:not(.open) .flights-content {
+    max-height: 0 !important;
+  }
+  .flights-toggle.open .flights-content {
+    max-height: 2000px;
   }
 
   /* ─── FLIGHT BANNER ─── */
@@ -228,6 +235,44 @@
     font-size: 12px;
     color: #666;
     margin-top: 2px;
+  }
+
+  /* ─── QUICK INFO BAR ─── */
+  .info-bar {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid #e8e0d0;
+  }
+  .info-card {
+    flex: 1;
+    padding: 16px 24px;
+    text-align: center;
+    border-right: 1px solid #e8e0d0;
+  }
+  .info-card:last-child { border-right: none; }
+  .info-card .info-icon {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+  .info-card .info-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 4px;
+  }
+  .info-card .info-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0b4f6c;
+  }
+  .info-card .info-detail {
+    font-size: 10.5px;
+    color: #888;
+    margin-top: 2px;
+    line-height: 1.4;
   }
 
   /* ─── DAILY SCHEDULE ─── */
@@ -379,6 +424,119 @@
     border: 1px solid #e8e0d0;
   }
 
+  /* ─── RESPONSIVE / MOBILE ─── */
+  @media (max-width: 700px) {
+    .hero {
+      padding: 32px 20px 24px;
+    }
+    .hero-top {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .hero h1 {
+      font-size: 26px;
+    }
+    .hero .dates-badge {
+      align-self: flex-start;
+    }
+    .hero .location-row {
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* Flights */
+    .flights-summary {
+      padding: 12px 16px;
+    }
+    .flights-section {
+      grid-template-columns: 1fr;
+    }
+    .flight-group-title {
+      padding: 8px 16px 4px;
+    }
+    .flight-card {
+      padding: 12px 16px 14px;
+    }
+
+    /* Hotel bar */
+    .hotel-bar {
+      padding: 14px 16px;
+      gap: 14px;
+    }
+
+    /* Info bar */
+    .info-bar {
+      flex-direction: column;
+    }
+    .info-card {
+      border-right: none;
+      border-bottom: 1px solid #e8e0d0;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-align: left;
+    }
+    .info-card:last-child { border-bottom: none; }
+    .info-card .info-icon {
+      font-size: 24px;
+      margin-bottom: 0;
+      flex-shrink: 0;
+    }
+    .info-card .info-label {
+      margin-bottom: 1px;
+    }
+    .info-card .info-value {
+      font-size: 14px;
+    }
+
+    /* Daily schedule — single column */
+    .schedule {
+      padding: 20px 16px 14px;
+    }
+    .day-grid {
+      columns: 1;
+    }
+
+    /* Resort map */
+    .resort-map {
+      padding: 16px 16px 10px;
+    }
+
+    /* Footer */
+    .footer {
+      flex-direction: column;
+      gap: 10px;
+      padding: 16px 20px;
+      text-align: center;
+    }
+    .footer .contact {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .hero h1 {
+      font-size: 22px;
+    }
+    .hero .subtitle {
+      font-size: 13px;
+    }
+    .event {
+      gap: 8px;
+    }
+    .event-time {
+      min-width: 48px;
+      font-size: 10px;
+    }
+    .event-name {
+      font-size: 11.5px;
+    }
+    .event-note {
+      margin-left: 56px;
+    }
+  }
+
   @media print {
     body { background: #fff; }
     .page { max-width: 100%; }
@@ -407,11 +565,12 @@
   </div>
 
   <!-- ═══ FLIGHTS (collapsible) ═══ -->
-  <details class="flights-toggle" open>
-    <summary>
+  <div class="flights-toggle open" id="flightsToggle">
+    <div class="flights-summary" onclick="toggleFlights()">
       <span class="toggle-label">✈ Flight Details<span class="toggle-hint">4 groups</span></span>
       <span class="toggle-arrow">▼</span>
-    </summary>
+    </div>
+    <div class="flights-content" id="flightsContent">
 
   <!-- ═══ SOUTHWEST: Curtis/Flood/Smith Group ═══ -->
   <div class="flights-section flights-g1">
@@ -513,7 +672,8 @@
     </div>
   </div>
 
-  </details>
+    </div>
+  </div>
 
   <!-- ═══ HOTEL ═══ -->
   <div class="hotel-bar">
@@ -521,6 +681,28 @@
     <div class="hotel-info">
       <h3><a href="https://www.fourseasons.com/hualalai/" target="_blank">Four Seasons Resort Hualalai</a></h3>
       <p>72-100 Ka'upulehu Drive, Kailua-Kona, HI 96740 · Check-in 3:00 PM (May 29) · Check-out 12:00 PM (Jun 3)</p>
+    </div>
+  </div>
+
+  <!-- ═══ QUICK INFO ═══ -->
+  <div class="info-bar">
+    <div class="info-card">
+      <div class="info-icon">🌡️</div>
+      <div class="info-label">Weather</div>
+      <div class="info-value">82–86°F</div>
+      <div class="info-detail">Warm & humid · Afternoon showers possible<br>Ocean temp ~78°F</div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🕐</div>
+      <div class="info-label">Time Zone</div>
+      <div class="info-value">HST (UTC−10)</div>
+      <div class="info-detail">4 hours behind St. Louis<br>Hawaii does not observe daylight saving</div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">👗</div>
+      <div class="info-label">Pack For</div>
+      <div class="info-value">Island Casual</div>
+      <div class="info-detail">Sunscreen · Reef-safe preferred<br>All White outfit for May 29 dinner</div>
     </div>
   </div>
 
@@ -678,5 +860,10 @@
   </div>
 
 </div>
+<script>
+function toggleFlights() {
+  document.getElementById('flightsToggle').classList.toggle('open');
+}
+</script>
 </body>
 </html>
