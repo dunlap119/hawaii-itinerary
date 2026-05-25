@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hawaii for Patricia's Birthday</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #faf9f6;
+    color: #2d2d2d;
+    line-height: 1.5;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+  }
+
+  /* ─── HERO HEADER ─── */
+  .hero {
+    background: linear-gradient(135deg, #0b4f6c 0%, #1a8a7d 40%, #2db89a 70%, #7dd4b0 100%);
+    color: #fff;
+    padding: 48px 48px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 30%;
+    width: 180px; height: 180px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+  .hero .subtitle {
+    font-size: 15px;
+    font-weight: 300;
+    opacity: 0.9;
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+  .hero .dates-badge {
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    padding: 10px 18px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.6;
+    white-space: nowrap;
+  }
+  .hero .location-row {
+    display: flex;
+    gap: 24px;
+    margin-top: 14px;
+    font-size: 13px;
+    font-weight: 400;
+    opacity: 0.92;
+  }
+  .hero .location-row span::before {
+    content: '✦ ';
+    opacity: 0.6;
+  }
+
+  /* ─── FLIGHT BANNER ─── */
+  .flights-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .flight-group-title {
+    grid-column: 1 / -1;
+    padding: 8px 28px 4px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+  }
+  .flights-sw { background: #b8306a; }
+  .flights-sw .flight-group-title { background: #b8306a; }
+  .flights-ua { background: #1a5276; }
+  .flights-ua .flight-group-title { background: #1a5276; }
+  .flight-card {
+    padding: 18px 28px 20px;
+    position: relative;
+  }
+  .flight-card.sw-depart {
+    background: #c43d78;
+    color: #fff;
+  }
+  .flight-card.sw-return {
+    background: #d4568e;
+    color: #fff;
+  }
+  .flight-card.ua-depart {
+    background: #1e6b8a;
+    color: #fff;
+  }
+  .flight-card.ua-return {
+    background: #2980a9;
+    color: #fff;
+  }
+  .flight-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 6px;
+  }
+  .flight-route {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .flight-details {
+    font-size: 11.5px;
+    line-height: 1.7;
+    opacity: 0.88;
+  }
+  .flight-details strong { font-weight: 600; opacity: 1; }
+  .flight-passengers {
+    font-size: 10.5px;
+    margin-top: 6px;
+    opacity: 0.7;
+    font-style: italic;
+  }
+
+  /* ─── HOTEL BAR ─── */
+  .hotel-bar {
+    background: #f5f0e8;
+    padding: 18px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid #e8e0d0;
+  }
+  .hotel-icon {
+    width: 44px; height: 44px;
+    background: #0b4f6c;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .hotel-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0b4f6c;
+  }
+  .hotel-info p {
+    font-size: 12px;
+    color: #666;
+    margin-top: 2px;
+  }
+
+  /* ─── DAILY SCHEDULE ─── */
+  .schedule {
+    padding: 28px 32px 18px;
+  }
+  .schedule-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #0b4f6c;
+    border-bottom: 2px solid #0b4f6c;
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+  }
+
+  .day-grid {
+    columns: 2;
+    column-gap: 32px;
+    margin-bottom: 8px;
+  }
+
+  .day-block {
+    break-inside: avoid;
+    margin-bottom: 14px;
+  }
+  .day-title {
+    font-weight: 600;
+    font-size: 13.5px;
+    color: #1a8a7d;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .day-title .day-dot {
+    width: 7px; height: 7px;
+    background: #1a8a7d;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .event {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .event-time {
+    color: #888;
+    font-weight: 500;
+    min-width: 58px;
+    text-align: right;
+    flex-shrink: 0;
+    font-size: 11px;
+    padding-top: 1px;
+  }
+  .event-name {
+    color: #333;
+  }
+  .event-name .tag {
+    display: inline-block;
+    background: #e8f5f0;
+    color: #1a8a7d;
+    font-size: 9.5px;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-left: 4px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .event-name .tag.special {
+    background: #fff3e0;
+    color: #e67e22;
+  }
+  .event-name a {
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px dotted #aaa;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .event-name a:hover {
+    color: #1a8a7d;
+    border-bottom-color: #1a8a7d;
+  }
+  .hotel-info h3 a {
+    color: #0b4f6c;
+    text-decoration: none;
+    border-bottom: 1px dotted #0b4f6c;
+  }
+  .hotel-info h3 a:hover { opacity: 0.75; }
+  .event-note {
+    font-size: 10.5px;
+    color: #999;
+    margin-left: 68px;
+    margin-top: -3px;
+    margin-bottom: 4px;
+  }
+  .event-note .dress-code {
+    color: #b8306a;
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: linear-gradient(135deg, #0b4f6c, #1a8a7d);
+    color: #fff;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+  }
+  .footer .aloha {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .footer .contact {
+    text-align: right;
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  /* ─── RESORT MAP ─── */
+  .resort-map {
+    padding: 22px 32px 14px;
+  }
+  .resort-map-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #0b4f6c;
+    border-bottom: 2px solid #0b4f6c;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+  }
+  .resort-map img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #e8e0d0;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══ HERO ═══ -->
+  <div class="hero">
+    <div class="hero-top">
+      <div>
+        <h1>Hawaii for Patricia's Birthday</h1>
+        <div class="subtitle">Kailua-Kona, Big Island</div>
+      </div>
+      <div class="dates-badge">
+        May 29 – Jun 4, 2026<br>
+        <strong>7 Days · 5 Nights</strong>
+      </div>
+    </div>
+    <div class="location-row">
+      <span>Four Seasons Resort Hualalai</span>
+      <span>25 Guests</span>
+    </div>
+  </div>
+
+  <!-- ═══ SOUTHWEST FLIGHTS ═══ -->
+  <div class="flights-section flights-sw">
+    <div class="flight-group-title">Southwest Airlines</div>
+    <div class="flight-card sw-depart">
+      <div class="flight-label">✈ Departure · Fri May 29</div>
+      <div class="flight-route">STL → LAS → KOA</div>
+      <div class="flight-details">
+        <strong>Southwest</strong> · WN 3153 & WN 3133<br>
+        Depart 6:00 AM · Arrive 1:15 PM HST<br>
+        Duration: 12h 15m · 1 Stop (LAS)
+      </div>
+      <div class="flight-passengers">Anthony, Crystal, Jackie, James, Rodney, Shane, Shanna</div>
+    </div>
+    <div class="flight-card sw-return">
+      <div class="flight-label">✈ Return · Wed Jun 3</div>
+      <div class="flight-route">KOA → LAS → STL</div>
+      <div class="flight-details">
+        <strong>Southwest</strong> · WN 2525 & WN 2368<br>
+        Depart 8:25 PM · Arrive 11:55 AM+1<br>
+        Duration: 10h 30m · 1 Stop (LAS)
+      </div>
+      <div class="flight-passengers">Anthony, Crystal, Jackie, James, Rodney, Shane, Shanna</div>
+    </div>
+  </div>
+
+  <!-- ═══ UNITED / ALASKA FLIGHTS ═══ -->
+  <div class="flights-section flights-ua">
+    <div class="flight-group-title">United & Alaska Airlines</div>
+    <div class="flight-card ua-depart">
+      <div class="flight-label">✈ Departure · Fri May 29</div>
+      <div class="flight-route">STL → ORD → HNL → KOA</div>
+      <div class="flight-details">
+        <strong>United / Alaska</strong> · UA 1008 / UA 219 / AS 1128<br>
+        Depart 6:00 AM STL · Arrive 3:51 PM KOA<br>
+        2 Stops (ORD, HNL)
+      </div>
+      <div class="flight-passengers">Sherrie, Chris, Archer, Fischer, River, Patricia, Sherea, Nick</div>
+    </div>
+    <div class="flight-card ua-return">
+      <div class="flight-label">✈ Return · Wed Jun 3 – Thu Jun 4</div>
+      <div class="flight-route">KOA → HNL → DEN → STL</div>
+      <div class="flight-details">
+        <strong>Alaska / United</strong> · AS 1157 / UA 1806 / UA 652<br>
+        Depart 6:35 PM KOA · Arrive 12:42 PM+1 STL<br>
+        2 Stops (HNL, DEN)
+      </div>
+      <div class="flight-passengers">Sherrie, Chris, Archer, Fischer, River, Patricia, Sherea, Nick</div>
+    </div>
+  </div>
+
+  <!-- ═══ HOTEL ═══ -->
+  <div class="hotel-bar">
+    <div class="hotel-icon">🌺</div>
+    <div class="hotel-info">
+      <h3><a href="https://www.fourseasons.com/hualalai/" target="_blank">Four Seasons Resort Hualalai</a></h3>
+      <p>72-100 Ka'upulehu Drive, Kailua-Kona, HI 96740 · Check-in 3:00 PM (May 29) · Check-out 12:00 PM (Jun 3)</p>
+    </div>
+  </div>
+
+  <!-- ═══ DAILY SCHEDULE ═══ -->
+  <div class="schedule">
+    <div class="schedule-header">Daily Itinerary</div>
+
+    <div class="day-grid">
+
+      <!-- DAY 1 -->
+      <div class="day-block">
+        <div class="day-title"><span class="day-dot"></span> Fri, May 29 — Arrival Day</div>
+        <div class="event">
+          <div class="event-time">1:15 PM</div>
+          <div class="event-name">Southwest group arrives <a href="https://maps.app.goo.gl/KonaAirport" target="_blank">KOA</a></div>
+        </div>
+        <div class="event">
+          <div class="event-time">3:00 PM</div>
+          <div class="event-name">Check in · <a href="https://www.fourseasons.com/hualalai/" target="_blank">Four Seasons Hualalai</a></div>
+        </div>
+        <div class="event">
+          <div class="event-time">5:30 PM</div>
+          <div class="event-name"><a href="https://www.fourseasons.com/hualalai/dining/restaurants/beach_tree/" target="_blank">Barefoot Table at Beach Tree</a> <span class="tag">dinner</span></div>
+        </div>
+        <div class="event-note">Family-style dinner · 25 guests · <span class="dress-code">Dress code: All White</span></div>
+      </div>
+
+      <!-- DAY 2 -->
+      <div class="day-block">
+        <div class="day-title"><span class="day-dot"></span> Sat, May 30 — Resort Day</div>
+        <div class="event">
+          <div class="event-time">All Day</div>
+          <div class="event-name">Free time · explore the <a href="https://www.fourseasons.com/hualalai/services-and-amenities/" target="_blank">resort & beach</a></div>
+        </div>
+        <div class="event">
+          <div class="event-time">5:30 PM</div>
+          <div class="event-name">Dinner at <a href="https://www.fourseasons.com/hualalai/dining/restaurants/ulu/" target="_blank">Ulu</a> <span class="tag">dinner</span></div>
+        </div>
+        <div class="event-note">20 guests</div>
+      </div>
+
+      <!-- DAY 3 -->
+      <div class="day-block">
+        <div class="day-title"><span class="day-dot"></span> Sun, May 31 — Boat Day</div>
+        <div class="event">
+          <div class="event-time">7:30 AM</div>
+          <div class="event-name">Sprinter Van transfer from lobby</div>
+        </div>
+        <div class="event">
+          <div class="event-time">8:30 AM</div>
+          <div class="event-name">Private Boat Charter · <a href="https://www.aliioceantours.com/" target="_blank">Alii Ocean Tours</a> <span class="tag special">adventure</span></div>
+        </div>
+        <div class="event-note">4 hrs · <a href="https://maps.app.goo.gl/HonokohauHarbor" target="_blank" style="color:#999;border-bottom:1px dotted #bbb;">Honokohau Harbor</a> · Breakfast & lunch included</div>
+        <div class="event">
+          <div class="event-time">5:30 PM</div>
+          <div class="event-name"><a href="https://www.fourseasons.com/hualalai/dining/restaurants/beach_tree/" target="_blank">Beach Tree</a> (17 guests) <span class="tag">dinner</span></div>
+        </div>
+        <div class="event">
+          <div class="event-time">6:00 PM</div>
+          <div class="event-name"><a href="https://www.fourseasons.com/hualalai/dining/restaurants/noio-omakase-counter/" target="_blank">Omakase Counter</a> (8 guests) <span class="tag">dinner</span></div>
+        </div>
+      </div>
+
+      <!-- DAY 4 -->
+      <div class="day-block">
+        <div class="day-title"><span class="day-dot"></span> Mon, Jun 1 — Wedding Day!</div>
+        <div class="event">
+          <div class="event-time">9:30 AM</div>
+          <div class="event-name">Sprinter Van transfer from lobby</div>
+        </div>
+        <div class="event">
+          <div class="event-time">9:45 AM</div>
+          <div class="event-name">Team Arrival & Parking · <a href="https://maps.app.goo.gl/kukio-beach" target="_blank">Kuki'o Beach</a> Parking Lot</div>
+        </div>
+        <div class="event">
+          <div class="event-time">9:55 AM</div>
+          <div class="event-name">Meet Photographer · Near restrooms in parking lot</div>
+        </div>
+        <div class="event">
+          <div class="event-time">10:00 AM</div>
+          <div class="event-name">Wedding Ceremony & Signing with Reverend Libby <span class="tag special">wedding</span></div>
+        </div>
+        <div class="event">
+          <div class="event-time">10:20 AM</div>
+          <div class="event-name">Photography Session (until 10:45 AM)</div>
+        </div>
+        <div class="event">
+          <div class="event-time">10:45 AM</div>
+          <div class="event-name">Happy Wedding Day, Shanna & Rodney! <span class="tag special">celebration</span></div>
+        </div>
+        <div class="event">
+          <div class="event-time">11:30 AM</div>
+          <div class="event-name">Lunch at <a href="https://www.millerandluxhualalai.com/" target="_blank">Miller & Lux</a> or <a href="https://www.fourseasons.com/hualalai/dining/restaurants/beach_tree/" target="_blank">Beach Tree</a></div>
+        </div>
+        <div class="event-note">25 guests · Award-winning Chef Tyler Florence</div>
+        <div class="event">
+          <div class="event-time">All PM</div>
+          <div class="event-name"><a href="https://www.fourseasons.com/hualalai/services-and-amenities/pool-and-beach/" target="_blank">Palm Grove Day Nest</a> cabana · Shanna & Rodney</div>
+        </div>
+        <div class="event">
+          <div class="event-time">5:00 PM</div>
+          <div class="event-name"><a href="https://www.maunalani.com/dining/canoe-house" target="_blank">Canoe House</a> dinner · Shanna & Rodney <span class="tag">dinner</span></div>
+        </div>
+      </div>
+
+      <!-- DAY 5 -->
+      <div class="day-block">
+        <div class="day-title"><span class="day-dot"></span> Tue, Jun 2 — Luau Night</div>
+        <div class="event">
+          <div class="event-time">10:00 AM</div>
+          <div class="event-name"><a href="https://www.fourseasons.com/hualalai/experiences/cultural-experiences/" target="_blank">Tide Pool with Kumu Kai</a> <span class="tag special">kids</span></div>
+        </div>
+        <div class="event-note">4.5 hrs · King's Pond · Kids activity</div>
+        <div class="event">
+          <div class="event-time">4:45 PM</div>
+          <div class="event-name">Sprinter Van transfer from lobby</div>
+        </div>
+        <div class="event">
+          <div class="event-time">5:30 PM</div>
+          <div class="event-name"><a href="https://www.maunakearesort.com/luau/" target="_blank">Mauna Kea Luau</a> <span class="tag special">luau</span></div>
+        </div>
+        <div class="event-note">2.5 hrs · 25 guests · General seating</div>
+      </div>
+
+      <!-- DAY 6 -->
+      <div class="day-block">
+        <div class="day-title"><span class="day-dot"></span> Wed, Jun 3 — Departure Day</div>
+        <div class="event">
+          <div class="event-time">12:00 PM</div>
+          <div class="event-name">Check out · <a href="https://www.fourseasons.com/hualalai/" target="_blank">Four Seasons Hualalai</a></div>
+        </div>
+        <div class="event">
+          <div class="event-time">8:25 PM</div>
+          <div class="event-name">Southwest group departs KOA → STL</div>
+        </div>
+        <div class="event-note">Arrive 11:55 AM next day (Thu, Jun 4)</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ RESORT MAP ═══ -->
+  <div class="resort-map">
+    <div class="resort-map-header">Resort Map</div>
+    <img src="resort-map.jpeg" alt="Four Seasons Resort Hualalai Map">
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="footer">
+    <div class="aloha">Aloha & Happy Birthday, Patricia! 🌴</div>
+    <div class="contact">
+      Travel arranged by Amy Zebala · AZ Travel / SmartFlyer<br>
+      amy@smartflyer.com · 314-288-8536
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
