@@ -176,6 +176,12 @@
   .flights-g4 .flight-card:first-of-type { background: #1f8f7e; color: #fff; }
   .flights-g4 .flight-card:last-of-type { background: #2ba695; color: #fff; }
 
+  /* Group 5: Island Plum — Glascoe & Stupka */
+  .flights-g5 { background: #6b3a6d; }
+  .flights-g5 .flight-group-title { background: #6b3a6d; }
+  .flights-g5 .flight-card:first-of-type { background: #7d4880; color: #fff; }
+  .flights-g5 .flight-card:last-of-type { background: #935a96; color: #fff; }
+
   .flight-card {
     padding: 14px 22px 16px;
     position: relative;
@@ -565,9 +571,9 @@
   </div>
 
   <!-- ═══ FLIGHTS (collapsible) ═══ -->
-  <div class="flights-toggle open" id="flightsToggle">
+  <div class="flights-toggle" id="flightsToggle">
     <div class="flights-summary" onclick="toggleFlights()">
-      <span class="toggle-label">✈ Flight Details<span class="toggle-hint">4 groups</span></span>
+      <span class="toggle-label">+ Flight Details<span class="toggle-hint">5 groups</span></span>
       <span class="toggle-arrow">▼</span>
     </div>
     <div class="flights-content" id="flightsContent">
@@ -669,6 +675,29 @@
         1 Stop (ORD)
       </div>
       <div class="flight-passengers">Karen, Matt</div>
+    </div>
+  </div>
+
+  <!-- ═══ SOUTHWEST: Glascoe & Stupka ═══ -->
+  <div class="flights-section flights-g5">
+    <div class="flight-group-title">Southwest Airlines — Glascoe &amp; Stupka</div>
+    <div class="flight-card">
+      <div class="flight-label">✈ Departure · Fri May 29</div>
+      <div class="flight-route">BWI → LAS → KOA</div>
+      <div class="flight-details">
+        <strong>Southwest</strong> · WN 1167 / WN 3133<br>
+        Depart 6:10 AM BWI · Arrive 1:15 PM KOA<br>
+        1 Stop (LAS) · Confirmation #CM6U4B
+      </div>
+      <div class="flight-passengers">Patrick Glascoe, Franny Stupka</div>
+    </div>
+    <div class="flight-card">
+      <div class="flight-label">✈ Return · TBD</div>
+      <div class="flight-route">KOA → BWI</div>
+      <div class="flight-details">
+        Return flight details to be confirmed
+      </div>
+      <div class="flight-passengers">Patrick Glascoe, Franny Stupka</div>
     </div>
   </div>
 
