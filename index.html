@@ -106,29 +106,33 @@
     text-transform: uppercase;
     color: rgba(255,255,255,0.65);
   }
-  .flights-sw { background: #b8306a; }
-  .flights-sw .flight-group-title { background: #b8306a; }
-  .flights-ua { background: #1a5276; }
-  .flights-ua .flight-group-title { background: #1a5276; }
+  /* Group 1: Tropical Pink — Curtis/Flood/Smith */
+  .flights-g1 { background: #b8306a; }
+  .flights-g1 .flight-group-title { background: #b8306a; }
+  .flights-g1 .flight-card:first-of-type { background: #c43d78; color: #fff; }
+  .flights-g1 .flight-card:last-of-type { background: #d4568e; color: #fff; }
+
+  /* Group 2: Sunset Coral — Gentry/Strickland */
+  .flights-g2 { background: #c75530; }
+  .flights-g2 .flight-group-title { background: #c75530; }
+  .flights-g2 .flight-card:first-of-type { background: #d4633c; color: #fff; }
+  .flights-g2 .flight-card:last-of-type { background: #e07a56; color: #fff; }
+
+  /* Group 3: Ocean Blue — Sims/Smith/Dunlap */
+  .flights-g3 { background: #1a5276; }
+  .flights-g3 .flight-group-title { background: #1a5276; }
+  .flights-g3 .flight-card:first-of-type { background: #1e6b8a; color: #fff; }
+  .flights-g3 .flight-card:last-of-type { background: #2980a9; color: #fff; }
+
+  /* Group 4: Tropical Teal — Karen & Matt */
+  .flights-g4 { background: #1a7a6d; }
+  .flights-g4 .flight-group-title { background: #1a7a6d; }
+  .flights-g4 .flight-card:first-of-type { background: #1f8f7e; color: #fff; }
+  .flights-g4 .flight-card:last-of-type { background: #2ba695; color: #fff; }
+
   .flight-card {
-    padding: 18px 28px 20px;
+    padding: 14px 22px 16px;
     position: relative;
-  }
-  .flight-card.sw-depart {
-    background: #c43d78;
-    color: #fff;
-  }
-  .flight-card.sw-return {
-    background: #d4568e;
-    color: #fff;
-  }
-  .flight-card.ua-depart {
-    background: #1e6b8a;
-    color: #fff;
-  }
-  .flight-card.ua-return {
-    background: #2980a9;
-    color: #fff;
   }
   .flight-label {
     font-size: 10px;
@@ -140,19 +144,19 @@
   }
   .flight-route {
     font-family: 'Playfair Display', serif;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
   }
   .flight-details {
-    font-size: 11.5px;
-    line-height: 1.7;
+    font-size: 11px;
+    line-height: 1.6;
     opacity: 0.88;
   }
   .flight-details strong { font-weight: 600; opacity: 1; }
   .flight-passengers {
-    font-size: 10.5px;
-    margin-top: 6px;
+    font-size: 10px;
+    margin-top: 4px;
     opacity: 0.7;
     font-style: italic;
   }
@@ -363,35 +367,60 @@
     </div>
   </div>
 
-  <!-- ═══ SOUTHWEST FLIGHTS ═══ -->
-  <div class="flights-section flights-sw">
-    <div class="flight-group-title">Southwest Airlines</div>
-    <div class="flight-card sw-depart">
+  <!-- ═══ SOUTHWEST: Curtis/Flood/Smith Group ═══ -->
+  <div class="flights-section flights-g1">
+    <div class="flight-group-title">Southwest Airlines — Curtis, Flood, Smith &amp; Smith-Taylor</div>
+    <div class="flight-card">
       <div class="flight-label">✈ Departure · Fri May 29</div>
       <div class="flight-route">STL → LAS → KOA</div>
       <div class="flight-details">
         <strong>Southwest</strong> · WN 3153 & WN 3133<br>
         Depart 6:00 AM · Arrive 1:15 PM HST<br>
-        Duration: 12h 15m · 1 Stop (LAS)
+        1 Stop (LAS)
       </div>
-      <div class="flight-passengers">Anthony, Crystal, Jackie, James, Rodney, Shane, Shanna</div>
+      <div class="flight-passengers">Crystal, Anthony, James, Jackie, Shanna, Shane, Rodney</div>
     </div>
-    <div class="flight-card sw-return">
-      <div class="flight-label">✈ Return · Wed Jun 3</div>
-      <div class="flight-route">KOA → LAS → STL</div>
+    <div class="flight-card">
+      <div class="flight-label">✈ Return · Wed Jun 3 – Thu Jun 4</div>
+      <div class="flight-route">KOA → LAS → DAL → STL</div>
       <div class="flight-details">
-        <strong>Southwest</strong> · WN 2525 & WN 2368<br>
-        Depart 8:25 PM · Arrive 11:55 AM+1<br>
-        Duration: 10h 30m · 1 Stop (LAS)
+        <strong>Southwest</strong> · WN 2525 / 1361 / 1412<br>
+        Depart 8:25 PM KOA · Arrive 2:45 PM+1 STL<br>
+        2 Stops (LAS, DAL)
       </div>
-      <div class="flight-passengers">Anthony, Crystal, Jackie, James, Rodney, Shane, Shanna</div>
+      <div class="flight-passengers">Crystal, Anthony, James, Jackie, Shanna, Shane, Rodney</div>
     </div>
   </div>
 
-  <!-- ═══ UNITED / ALASKA FLIGHTS ═══ -->
-  <div class="flights-section flights-ua">
-    <div class="flight-group-title">United & Alaska Airlines</div>
-    <div class="flight-card ua-depart">
+  <!-- ═══ SOUTHWEST: Gentry/Strickland Group ═══ -->
+  <div class="flights-section flights-g2">
+    <div class="flight-group-title">Southwest Airlines — Gentry &amp; Strickland</div>
+    <div class="flight-card">
+      <div class="flight-label">✈ Departure · Fri May 29</div>
+      <div class="flight-route">STL → LAS → KOA</div>
+      <div class="flight-details">
+        <strong>Southwest</strong> · WN 3153 & WN 3133<br>
+        Depart 6:00 AM · Arrive 1:15 PM HST<br>
+        1 Stop (LAS)
+      </div>
+      <div class="flight-passengers">Earica, Isaac, Zora, Christopher</div>
+    </div>
+    <div class="flight-card">
+      <div class="flight-label">✈ Return · Wed Jun 3 – Thu Jun 4</div>
+      <div class="flight-route">KOA → LAS → STL</div>
+      <div class="flight-details">
+        <strong>Southwest</strong> · WN 2525 & WN 2368<br>
+        Depart 8:25 PM KOA · Arrive 11:55 AM+1 STL<br>
+        1 Stop (LAS)
+      </div>
+      <div class="flight-passengers">Earica, Isaac, Zora, Christopher</div>
+    </div>
+  </div>
+
+  <!-- ═══ UNITED/ALASKA: Sims/Smith/Dunlap Group ═══ -->
+  <div class="flights-section flights-g3">
+    <div class="flight-group-title">United &amp; Alaska Airlines — Sims, Smith &amp; Dunlap</div>
+    <div class="flight-card">
       <div class="flight-label">✈ Departure · Fri May 29</div>
       <div class="flight-route">STL → ORD → HNL → KOA</div>
       <div class="flight-details">
@@ -401,7 +430,7 @@
       </div>
       <div class="flight-passengers">Sherrie, Chris, Archer, Fischer, River, Patricia, Sherea, Nick</div>
     </div>
-    <div class="flight-card ua-return">
+    <div class="flight-card">
       <div class="flight-label">✈ Return · Wed Jun 3 – Thu Jun 4</div>
       <div class="flight-route">KOA → HNL → DEN → STL</div>
       <div class="flight-details">
@@ -410,6 +439,31 @@
         2 Stops (HNL, DEN)
       </div>
       <div class="flight-passengers">Sherrie, Chris, Archer, Fischer, River, Patricia, Sherea, Nick</div>
+    </div>
+  </div>
+
+  <!-- ═══ UNITED/ALASKA: Karen & Matt ═══ -->
+  <div class="flights-section flights-g4">
+    <div class="flight-group-title">United &amp; Alaska Airlines — Karen &amp; Matt Sims</div>
+    <div class="flight-card">
+      <div class="flight-label">✈ Departure · Fri May 29</div>
+      <div class="flight-route">STL → DEN → KOA</div>
+      <div class="flight-details">
+        <strong>United</strong> · UA 2459 / UA 1758<br>
+        Depart 9:06 AM STL · Arrive 3:37 PM KOA<br>
+        1 Stop (DEN)
+      </div>
+      <div class="flight-passengers">Karen, Matt</div>
+    </div>
+    <div class="flight-card">
+      <div class="flight-label">✈ Return · Wed Jun 3 – Thu Jun 4</div>
+      <div class="flight-route">HNL → ORD → STL</div>
+      <div class="flight-details">
+        <strong>United</strong> · UA 218 / UA 5958<br>
+        Depart 4:00 PM HNL · Arrive 8:41 AM+1 STL<br>
+        1 Stop (ORD)
+      </div>
+      <div class="flight-passengers">Karen, Matt</div>
     </div>
   </div>
 
@@ -433,7 +487,7 @@
         <div class="day-title"><span class="day-dot"></span> Fri, May 29 — Arrival Day</div>
         <div class="event">
           <div class="event-time">1:15 PM</div>
-          <div class="event-name">Southwest group arrives <a href="https://maps.app.goo.gl/KonaAirport" target="_blank">KOA</a></div>
+          <div class="event-name">Southwest group arrives <a href="https://maps.google.com/?q=Ellison+Onizuka+Kona+International+Airport" target="_blank">KOA</a></div>
         </div>
         <div class="event">
           <div class="event-time">3:00 PM</div>
@@ -471,7 +525,7 @@
           <div class="event-time">8:30 AM</div>
           <div class="event-name">Private Boat Charter · <a href="https://www.aliioceantours.com/" target="_blank">Alii Ocean Tours</a> <span class="tag special">adventure</span></div>
         </div>
-        <div class="event-note">4 hrs · <a href="https://maps.app.goo.gl/HonokohauHarbor" target="_blank" style="color:#999;border-bottom:1px dotted #bbb;">Honokohau Harbor</a> · Breakfast & lunch included</div>
+        <div class="event-note">4 hrs · <a href="https://maps.google.com/?q=Honokohau+Harbor+Kailua-Kona+HI" target="_blank" style="color:#999;border-bottom:1px dotted #bbb;">Honokohau Harbor</a> · Breakfast & lunch included</div>
         <div class="event">
           <div class="event-time">5:30 PM</div>
           <div class="event-name"><a href="https://www.fourseasons.com/hualalai/dining/restaurants/beach_tree/" target="_blank">Beach Tree</a> (17 guests) <span class="tag">dinner</span></div>
@@ -491,7 +545,7 @@
         </div>
         <div class="event">
           <div class="event-time">9:45 AM</div>
-          <div class="event-name">Team Arrival & Parking · <a href="https://maps.app.goo.gl/kukio-beach" target="_blank">Kuki'o Beach</a> Parking Lot</div>
+          <div class="event-name">Team Arrival & Parking · <a href="https://maps.google.com/?q=Kukio+Beach+Kailua-Kona+HI" target="_blank">Kuki'o Beach</a> Parking Lot</div>
         </div>
         <div class="event">
           <div class="event-time">9:55 AM</div>
@@ -511,7 +565,7 @@
         </div>
         <div class="event">
           <div class="event-time">11:30 AM</div>
-          <div class="event-name">Lunch at <a href="https://www.millerandluxhualalai.com/" target="_blank">Miller & Lux</a> or <a href="https://www.fourseasons.com/hualalai/dining/restaurants/beach_tree/" target="_blank">Beach Tree</a></div>
+          <div class="event-name">Lunch at <a href="https://millerandluxrestaurant.com/pages/hualalai" target="_blank">Miller & Lux</a> or <a href="https://www.fourseasons.com/hualalai/dining/restaurants/beach_tree/" target="_blank">Beach Tree</a></div>
         </div>
         <div class="event-note">25 guests · Award-winning Chef Tyler Florence</div>
         <div class="event">
@@ -538,7 +592,7 @@
         </div>
         <div class="event">
           <div class="event-time">5:30 PM</div>
-          <div class="event-name"><a href="https://www.maunakearesort.com/luau/" target="_blank">Mauna Kea Luau</a> <span class="tag special">luau</span></div>
+          <div class="event-name"><a href="https://www.maunakearesort.com/mauna-kea-beach-hotel/dining/mauna-kea-luau" target="_blank">Mauna Kea Luau</a> <span class="tag special">luau</span></div>
         </div>
         <div class="event-note">2.5 hrs · 25 guests · General seating</div>
       </div>
